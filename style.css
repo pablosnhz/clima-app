@@ -3,7 +3,7 @@ body {
     text-align: center;
 }
 
-#search__container {
+.app {
     margin: 50px auto;
     width: 300px;
 }

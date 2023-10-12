@@ -3,12 +3,23 @@ const api = {
     url: `https://api.openweathermap.org/data/2.5/weather`
 }
 
-function onsubmit(event){
-    event.preventDefault();
-    alert(searchInput.value);
+async function search(query){
+    try {
+        const response = await fetch(`${api.url}?q=${query}&appid=${api.key}&lang=es`)
+        const data = await response.json();
+        console.log(data);
+    } catch(err) {
+        console.log(err);
+        alert('Hubo un error');
+    }
 }
 
-const search = document.getElementById('search')
-const searchInput = document.getElementById('search__input') 
+function onSubmit(event){
+    event.preventDefault();
+    search(searchInput.value)
+}
 
-search.addEventListener('submit', onsubmit, true);
+const searchForm = document.getElementById('searchform');
+const searchInput = document.getElementById('search__input');
+
+searchForm.addEventListener('submit', onSubmit, true);

@@ -28,10 +28,11 @@ body {
     cursor: pointer;
 }
 
-#weather__card {
+.weather__card {
     margin: 50px auto;
     width: 300px;
     text-align: center;
+    display: none;
 }
 
 .location {

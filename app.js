@@ -1,3 +1,5 @@
+const card = document.getElementById('card')
+
 const city = document.getElementById('city')
 const date = document.getElementById('date')
 const temp = document.getElementById('temp')
@@ -27,6 +29,8 @@ async function search(query){
         const response = await fetch(`${api.url}?q=${query}&appid=${api.key}&lang=es`)
         const data = await response.json();
         
+        card.style.display = 'block';
+
         city.textContent = `${data.name}, ${data.sys.country}`;
         date.textContent = (new Date()).toLocaleDateString();
         temp.textContent = toCelsius(data.main.temp);
